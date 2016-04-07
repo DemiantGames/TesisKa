@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour {
 			Spawn ();
 			tiempo=TimeSpawn;
 		}
-		TimeSpawn -= Time.deltaTime;
+		tiempo -= Time.deltaTime;
 
 	
 	}

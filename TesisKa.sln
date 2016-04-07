@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{F41ED424-C4A7-2653-D13A-4DA29E8F8CED}") = "TesisKA", "Assembly-CSharp.csproj", "{D6AE0E33-69AE-757B-779C-F49442E78B75}"
+Project("{847981F5-4EAF-55EB-3FA2-7A8610F345E8}") = "TesisKa", "Assembly-CSharp.csproj", "{361FD6B1-3746-6D8A-CCDC-6AF6553E0195}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D6AE0E33-69AE-757B-779C-F49442E78B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6AE0E33-69AE-757B-779C-F49442E78B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6AE0E33-69AE-757B-779C-F49442E78B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6AE0E33-69AE-757B-779C-F49442E78B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{361FD6B1-3746-6D8A-CCDC-6AF6553E0195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{361FD6B1-3746-6D8A-CCDC-6AF6553E0195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{361FD6B1-3746-6D8A-CCDC-6AF6553E0195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{361FD6B1-3746-6D8A-CCDC-6AF6553E0195}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
