@@ -6,7 +6,9 @@ public class controlBombon : MonoBehaviour {
 
 
 	private bool JumpFlag = false;
-	private int dir=4;
+	public bool Error=false;
+	private float Tiempoerror=0.2f;
+	private int dir=2;
 	private Animator animator;
 	private int puntos=0;
 	public Text puntostext;
@@ -19,8 +21,11 @@ public class controlBombon : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		
-		float moveInput = Input.GetAxis("Horizontal") * Time.deltaTime * 6;
+		Tiempoerror -= Time.deltaTime;
+		if (Tiempoerror <= 0) {
+			Error = false;
+		}
+		float moveInput = Input.GetAxis("Horizontal") * Time.deltaTime * 4;
 	
 		if (moveInput == 0) {
 			if (TiempoparaIDLE<=0) {
@@ -30,19 +35,19 @@ public class controlBombon : MonoBehaviour {
 			TiempoparaIDLE -= Time.deltaTime;
 
 		}else if (moveInput < 0) {
-			dir = -4;
+			dir = -2;
 
 			animator.SetBool ("Corriendo", true);
 		} else if(moveInput > 0) {
-			dir = 4;
+			dir = 2;
 			animator.SetBool ("Corriendo", true);
 		}
-		transform.localScale = new Vector3 (dir, 4, 0);
+		transform.localScale = new Vector3 (dir, 2, 0);
 		transform.position += new Vector3 (moveInput, 0, 0);
 
 		if (Input.GetButtonDown ("Jump") && JumpFlag) {
 			animator.SetTrigger ("Saltar");
-			GetComponent<Rigidbody2D>().AddForce(new Vector3(0,400,0));
+			GetComponent<Rigidbody2D>().AddForce(new Vector3(0,300,0));
 
 		} 
 
@@ -65,6 +70,8 @@ public class controlBombon : MonoBehaviour {
 
 		}
 		if (col.gameObject.tag == "MalaPalabra") {
+			Error = true;
+			Tiempoerror = 0.2f;
 			//Guardar la poscición de la pregunta para lanzarla después
 		}
 	}

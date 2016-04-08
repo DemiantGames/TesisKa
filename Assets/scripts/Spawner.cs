@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class Spawner : MonoBehaviour {
-	private float TimeSpawn=3;
+	private float TimeSpawn=5;
 	private float tiempo=3;
 	public GameObject BuenaPalabra;
 	public GameObject MalaPalabra;
 	private Vector3 ubication1,ubication2,ubication3;
-
+	public bool AlienComunica = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour {
 	void Update () {
 
 
-
+		AlienComunica = false;
 
 		if (tiempo <= 0) {
 
@@ -41,9 +41,11 @@ public class Spawner : MonoBehaviour {
 		if (add3Pos > 3) {
 			add3Pos = 1;
 		}
-		add1Pos*=4;
-		add2Pos*=4;
-		add3Pos*=4;
+		add1Pos*=3;
+		add2Pos*=3;
+		add3Pos*=3;
+
+
 
 
 		ubication1 = transform.position + new Vector3 (add1Pos,0 , 0);
@@ -54,5 +56,8 @@ public class Spawner : MonoBehaviour {
 		Instantiate (BuenaPalabra, ubication1, Quaternion.identity);
 		Instantiate (MalaPalabra, ubication2, Quaternion.identity);
 		Instantiate (MalaPalabra, ubication3, Quaternion.identity);
+
+		AlienComunica = true;
+
 	}
 }
