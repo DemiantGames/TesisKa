@@ -7,4 +7,5 @@ public class Palabra : MonoBehaviour {
 		Destroy (gameObject);
 
 	}
+
 }

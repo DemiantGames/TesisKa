@@ -6,8 +6,8 @@ public class controlBombon : MonoBehaviour {
 
 
 	private bool JumpFlag = false;
-	public bool Error=false;
-	private float Tiempoerror=0.2f;
+	public bool Error=false, BienRespondido=false;
+	private float Tiempoerror=0.2f, tiempoinmune=0f;
 	private int dir=2;
 	private Animator animator;
 	private int puntos=0;
@@ -21,10 +21,13 @@ public class controlBombon : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		
 		Tiempoerror -= Time.deltaTime;
+		tiempoinmune -= Time.deltaTime;
 		if (Tiempoerror <= 0) {
 			Error = false;
 		}
+
 		float moveInput = Input.GetAxis("Horizontal") * Time.deltaTime * 4;
 	
 		if (moveInput == 0) {
@@ -60,18 +63,23 @@ public class controlBombon : MonoBehaviour {
 			JumpFlag = true;
 			animator.SetBool ("Piso", true);
 		}
-		if (col.gameObject.tag == "BuenaPalabra") {
+		if (col.gameObject.tag == "BuenaPalabra" && tiempoinmune<=0) {
 			if(puntos<14){
 			puntos += 1;
 			puntostext.text = puntos.ToString ();
 			}else {
 					puntostext.text = "You Win";
 				}
+			tiempoinmune = 1f;
 
+			BienRespondido = true;
 		}
-		if (col.gameObject.tag == "MalaPalabra") {
+		if (col.gameObject.tag == "MalaPalabra" && tiempoinmune<=0) {
 			Error = true;
 			Tiempoerror = 0.2f;
+			tiempoinmune = 1f;
+
+
 			//Guardar la poscición de la pregunta para lanzarla después
 		}
 	}
@@ -84,5 +92,6 @@ public class controlBombon : MonoBehaviour {
 		}
 
 	}
+
 
 }
